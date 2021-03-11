@@ -13,61 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5813e172-9c2d-4202-8aee-3bb29613fc88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_derby_derby_10_14_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/context/ComponentContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/function/ThrowableAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/enums/UserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/orm/jpa/DelegatingEntityManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/orm/jpa/JpaDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/sql/LocalTransactional.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/validator/bean/validation/BeanValidationDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/validator/bean/validation/DelegatingValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/validator/bean/validation/UserValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/validator/bean/validation/UserValidAnnotationValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/web/listener/ComponentContextInitializerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/web/listener/TestingListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/resources/META-INF/jpa-datasource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-web/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/DatabaseUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/DatabaseUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/InMemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/InMemoryUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/sql/DBConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/sql/DBConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/web/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/web/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/web/listener/DBConnectionInitializerListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/webapp/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/webapp/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/repository/DatabaseUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/repository/DatabaseUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/repository/InMemoryUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/repository/InMemoryUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/sql/DBConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/sql/DBConnectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/web/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/web/controller/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/classes/org/geektimes/projects/user/web/listener/DBConnectionInitializerListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/META-INF/context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/repository/DatabaseUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/repository/DatabaseUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/repository/InMemoryUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/repository/InMemoryUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/sql/DBConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/sql/DBConnectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/web/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/web/controller/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/classes/org/geektimes/projects/user/web/listener/DBConnectionInitializerListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/lib/derby-10.1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/lib/my-web-mvc-v1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/lib/my-web-mvc-v1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-web/target/user-web-v1-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/my-web-mvc/target/" />
     <ignored path="$PROJECT_DIR$/user-web/target/" />
@@ -80,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/context/ComponentContext.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="264" selection-start-line="264" selection-end-line="270" selection-end-column="11" />
+            <state relative-caret-position="-84">
+              <caret line="259" column="29" lean-forward="true" selection-start-line="259" selection-start-column="29" selection-end-line="259" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="233">
               <caret line="65" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
@@ -626,7 +572,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615440071138" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1615442571063" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../gitProject/geekbang-lessons/projects/stage-0/user-platform" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -892,12 +838,12 @@
       <workItem from="1615378179995" duration="17196000" />
       <workItem from="1615395803134" duration="544000" />
       <workItem from="1615422768676" duration="5394000" />
-      <workItem from="1615428273050" duration="9711000" />
+      <workItem from="1615428273050" duration="11204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59790000" />
+    <option name="totallyTimeSpent" value="61283000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -914,7 +860,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.44617563" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.09065156" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.09065156" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1004,12 +950,6 @@
           <line>132</line>
           <properties />
           <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/impl/UserServiceImpl.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/repository/DatabaseUserRepository.java</url>
@@ -1403,13 +1343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/sql/DBConnectionManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -1443,11 +1376,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/context/ComponentContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="264" selection-start-line="264" selection-end-line="270" selection-end-column="11" />
+        <state relative-caret-position="-84">
+          <caret line="259" column="29" lean-forward="true" selection-start-line="259" selection-start-column="29" selection-end-line="259" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user-web/src/main/java/org/geektimes/projects/user/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
