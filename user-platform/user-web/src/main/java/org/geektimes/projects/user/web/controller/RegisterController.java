@@ -1,5 +1,6 @@
 package org.geektimes.projects.user.web.controller;
 
+import org.geektimes.context.ComponentContext;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.repository.DatabaseUserRepository;
 import org.geektimes.projects.user.service.UserService;
@@ -19,6 +20,13 @@ import javax.ws.rs.Path;
 @Path("/register")
 public class RegisterController implements PageController {
 
+    private static final UserService userService;
+
+    static {
+        userService = ComponentContext.getInstance().getComponent("bean/UserService");
+    }
+
+
     @GET
     /*@POST*/
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -31,7 +39,6 @@ public class RegisterController implements PageController {
         user.setPassword(password);
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
-        UserService userService = new UserServiceImpl();
         boolean resultFlag = userService.register(user);
         return resultFlag ? "success.jsp" : "failure.jsp";
     }

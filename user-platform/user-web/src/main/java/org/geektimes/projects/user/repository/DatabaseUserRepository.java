@@ -1,9 +1,16 @@
 package org.geektimes.projects.user.repository;
 
+import org.geektimes.context.ComponentContext;
 import org.geektimes.function.ThrowableFunction;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.sql.DBConnectionManager;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TransactionRequiredException;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
@@ -28,12 +35,22 @@ public class DatabaseUserRepository implements UserRepository {
     private static Consumer<Throwable> COMMON_EXCEPTION_HANDLER = e -> logger.log(Level.SEVERE, e.getMessage());
 
     public static final String INSERT_USER_DML_SQL =
-            "INSERT INTO users(name, password, email, phoneNumber) VALUES " +
+            "INSERT INTO users(name,password,email,phoneNumber) VALUES " +
                     "(?,?,?,?)";
 
     public static final String QUERY_ALL_USERS_DML_SQL = "SELECT id,name,password,email,phoneNumber FROM users";
 
-    private final DBConnectionManager dbConnectionManager;
+    private DBConnectionManager dbConnectionManager;
+
+
+    public DatabaseUserRepository() {
+
+    }
+
+    @PostConstruct
+    public void init() {
+        this.dbConnectionManager = ComponentContext.getInstance().getComponent("bean/DBConnectionManager");
+    }
 
     public DatabaseUserRepository(DBConnectionManager dbConnectionManager) {
         this.dbConnectionManager = dbConnectionManager;
@@ -43,11 +60,37 @@ public class DatabaseUserRepository implements UserRepository {
         return dbConnectionManager.getConnection();
     }
 
+    private EntityManager getEntityManager() {
+        return dbConnectionManager.getEntityManager();
+    }
+
+    public void releaseConnection() {
+        dbConnectionManager.releaseConnection();
+    }
+
+
     @Override
     public boolean save(User user) {
         String[] paramArr = {user.getName(), user.getPassword(), user.getEmail(), user.getPhoneNumber()};
         int result = executeInsert(INSERT_USER_DML_SQL, COMMON_EXCEPTION_HANDLER, paramArr);
         return (result == 1);
+    }
+
+    @Override
+    public boolean saveAsTransactional(User user) {
+        EntityManager entityManager = getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            logger.info("事务开启");
+            entityManager.persist(user);
+            transaction.commit();
+            logger.info("事务提交完成");
+        } catch (Exception e) {
+            logger.info("事务处理异常，异常信息：" + e);
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -89,16 +132,15 @@ public class DatabaseUserRepository implements UserRepository {
                     // 可能存在映射关系（不过此处是相等的）
                     String columnLabel = mapColumnLabel(fieldName);
                     Method resultSetMethod = ResultSet.class.getMethod(methodName, String.class);
-                    // 通过反射调用 getXXX(String) 方法
+                    // 通过放射调用 getXXX(String) 方法
                     Object resultValue = resultSetMethod.invoke(resultSet, columnLabel);
-                    // 获取 User 类 Setter 方法
-                    // PropertyDescriptor ReadMethod 等于 Getter方法
-                    // PropertyDercriptor WriteMethod 等于 Setter方法
+                    // 获取 User 类 Setter方法
+                    // PropertyDescriptor ReadMethod 等于 Getter 方法
+                    // PropertyDescriptor WriteMethod 等于 Setter 方法
                     Method setterMethodFromUser = propertyDescriptor.getWriteMethod();
-                    // 以 id 为例， user.setId(result.getLong("id"))
+                    // 以 id 为例，  user.setId(resultSet.getLong("id"));
                     setterMethodFromUser.invoke(user, resultValue);
                 }
-
             }
             return users;
         }, e -> {
@@ -142,8 +184,6 @@ public class DatabaseUserRepository implements UserRepository {
     /**
      * @param sql
      * @param function
-     * @param exceptionHandler
-     * @param args
      * @param <T>
      * @return
      */
@@ -166,10 +206,9 @@ public class DatabaseUserRepository implements UserRepository {
                 String methodName = preparedStatementMethodMappings.get(argType);
                 Method method = PreparedStatement.class.getMethod(methodName, wrapperType);
                 method.invoke(preparedStatement, i + 1, args);
-
             }
             ResultSet resultSet = preparedStatement.executeQuery();
-            // 返回一个 POJO List -> ResultSet -> POJO list
+            // 返回一个 POJO List -> ResultSet -> POJO List
             // ResultSet -> T
             return function.apply(resultSet);
         } catch (Throwable e) {
@@ -178,12 +217,13 @@ public class DatabaseUserRepository implements UserRepository {
         return null;
     }
 
+
     private static String mapColumnLabel(String fieldName) {
         return fieldName;
     }
 
     /**
-     * 数据类型与 ResultSet 方法明映射
+     * 数据类型与 ResultSet 方法名映射
      */
     static Map<Class, String> resultSetMethodMappings = new HashMap<>();
 
@@ -194,6 +234,8 @@ public class DatabaseUserRepository implements UserRepository {
         resultSetMethodMappings.put(String.class, "getString");
 
         preparedStatementMethodMappings.put(Long.class, "setLong"); // long
-        preparedStatementMethodMappings.put(String.class, "setString"); // string
+        preparedStatementMethodMappings.put(String.class, "setString"); //
+
+
     }
 }

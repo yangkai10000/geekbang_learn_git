@@ -2,9 +2,11 @@ package org.geektimes.projects.user.sql;
 
 import org.geektimes.projects.user.domain.User;
 
+import javax.annotation.Resource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -15,57 +17,87 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBConnectionManager {
 
-    private Connection connection;
+    private final Logger logger = Logger.getLogger(DBConnectionManager.class.getName());
 
-    public void setConnection(Connection connection) {
-        this.connection = connection;
+    @Resource(name = "jdbc/UserPlatformDB")
+    private DataSource dataSource;
+
+    @Resource(name = "bean/EntityManager")
+    private EntityManager entityManager;
+
+
+//    private Connection connection;
+//
+//    public void setConnection(Connection connection) {
+//        this.connection = connection;
+//    }
+//
+//    public Connection getConnection() {
+//        this.connection = createJNDIConnection();
+//        return this.connection;
+//    }
+//
+    public void releaseConnection() {
+//        if (this.connection != null) {
+//            try {
+//                this.connection.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e.getCause());
+//            }
+//        }
+    }
+
+//    public Connection createConnection() {
+//        String databaseURL = "jdbc:derby:/db/user-platform;create=true";
+//        Connection connection;
+//        try {
+//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+//            connection = DriverManager.getConnection(databaseURL);
+//            return connection;
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    public Connection createJNDIConnection() {
+//        String jndiName = "java:comp/env/jdbc/UserPlatformDB";
+//        Connection connection;
+//        try {
+//            Context context = new InitialContext();
+//            DataSource dataSource = (DataSource) context.lookup(jndiName);
+//            connection = dataSource.getConnection();
+//            return connection;
+//        } catch (SQLException | NamingException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return null;
+//    }
+
+    public EntityManager getEntityManager() {
+        logger.info("当前 EntityManager 实现类：" + entityManager.getClass().getName());
+        return entityManager;
     }
 
     public Connection getConnection() {
-        this.connection = createJNDIConnection();
-        return this.connection;
-    }
-
-    public void releaseConnection() {
-        if (this.connection != null) {
-            try {
-                this.connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e.getCause());
-            }
-        }
-    }
-
-    public Connection createConnection() {
-        String databaseURL = "jdbc:derby:/db/user-platform;create=true";
-        Connection connection;
+        // 依赖查找
+        Connection connection = null;
         try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
-            connection = DriverManager.getConnection(databaseURL);
-            return connection;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public Connection createJNDIConnection() {
-        String jndiName = "java:comp/env/jdbc/UserPlatformDB";
-        Connection connection;
-        try {
-            Context context = new InitialContext();
-            DataSource dataSource = (DataSource) context.lookup(jndiName);
             connection = dataSource.getConnection();
-            return connection;
-        } catch (SQLException | NamingException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage());
         }
-        return null;
+        if (connection != null) {
+            logger.log(Level.INFO, "获取 JNDI 数据库连接成功！");
+        }
+        return connection;
     }
 
     public static final String DROP_USERS_TABLE_DDL_SQL = "DROP TABLE users";
@@ -95,11 +127,12 @@ public class DBConnectionManager {
 //        Connection connection = driver.connect("jdbc:derby:/db/user-platform;create=true", new Properties());
 
         String databaseURL = "jdbc:derby:/db/user-platform;create=true";
+//        String databaseURL = "jdbc:derby:F:/Derby/db-derby-10.14.2.0-bin/bin/db/user-platform;create=true";
         Connection connection = DriverManager.getConnection(databaseURL);
 
         Statement statement = connection.createStatement();
         // 删除 users 表
-        //System.out.println(statement.execute(DROP_USERS_TABLE_DDL_SQL)); // false
+//        System.out.println(statement.execute(DROP_USERS_TABLE_DDL_SQL)); // false
         // 创建 users 表
         System.out.println(statement.execute(CREATE_USERS_TABLE_DDL_SQL)); // false
         System.out.println(statement.executeUpdate(INSERT_USER_DML_SQL));  // 5

@@ -21,6 +21,11 @@ public class InMemoryUserRepository implements UserRepository {
     }
 
     @Override
+    public boolean saveAsTransactional(User user) {
+        return false;
+    }
+
+    @Override
     public boolean deleteById(Long userId) {
         return repository.remove(userId) != null;
     }

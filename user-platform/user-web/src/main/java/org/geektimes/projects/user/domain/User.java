@@ -1,20 +1,42 @@
 package org.geektimes.projects.user.domain;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.io.Serializable;
 import java.util.Objects;
+
+import static javax.persistence.GenerationType.AUTO;
 
 /**
  * 用户领域对象
  */
-public class User {
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = AUTO)
+//    @NotNull
+//    @Min(1)
     private Long id;
 
+    @Column
     private String name;
 
+    @Column
+//    @Max(32)
+//    @Min(6)
+    @Length
+    @Size(min = 6, max = 32)
     private String password;
 
+    @Column
     private String email;
 
+    @Column
+//    @Pattern(regexp = "^1[3-9]\\d{9}$")
     private String phoneNumber;
 
     public Long getId() {
@@ -55,6 +77,18 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(phoneNumber, user.phoneNumber);
     }
 
     @Override
